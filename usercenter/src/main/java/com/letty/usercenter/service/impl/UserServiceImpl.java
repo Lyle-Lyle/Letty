@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import static com.letty.usercenter.constant.UserConstant.USER_LOGIN_STATE;
+
 @Service
 @Slf4j
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
@@ -20,7 +22,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private UserMapper userMapper;
 
     private static final String SALT = "Lyle";
-    private static final String USER_LOGIN_STATE = "userLoginState";
+
 
     @Override
     public Long userRegister(String userAccount, String userPassword, String checkPassword) {
@@ -93,21 +95,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             log.info("login failed, please check your username and password");
             return null;
         }
-        //用户脱敏
-        User enUser = new User();
-        enUser.setId(user.getId());
-        enUser.setUsername(user.getUsername());
-        enUser.setUserAccount(user.getUserAccount());
-        enUser.setUserPassword(user.getUserPassword());
-        enUser.setAvatarUrl(user.getAvatarUrl());
-        enUser.setGender(user.getGender());
-        enUser.setPhone(user.getPhone());
-        enUser.setEmail(user.getEmail());
-        enUser.setUserStatus(user.getUserStatus());
-        enUser.setCreatedTime(user.getCreatedTime());
+        User enUser = getEncryptedUser(user);
         //记录用户的登录态
         // attribute是一个map
-        request.getSession().setAttribute(USER_LOGIN_STATE, user);
-        return user;
+        request.getSession().setAttribute(USER_LOGIN_STATE, enUser);
+        return enUser;
+    }
+
+    /**
+     * encrypt user information
+     * @param originUser
+     * @return
+     */
+    @Override
+    public User getEncryptedUser(User originUser) {
+        User enUser = new User();
+        enUser.setId(originUser.getId());
+        enUser.setUsername(originUser.getUsername());
+        enUser.setUserAccount(originUser.getUserAccount());
+        enUser.setUserPassword(originUser.getUserPassword());
+        enUser.setAvatarUrl(originUser.getAvatarUrl());
+        enUser.setGender(originUser.getGender());
+        enUser.setPhone(originUser.getPhone());
+        enUser.setEmail(originUser.getEmail());
+        enUser.setUserStatus(originUser.getUserStatus());
+        enUser.setCreatedTime(originUser.getCreatedTime());
+        return enUser;
     }
 }

@@ -1,5 +1,8 @@
 package com.letty.usercenter.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.letty.usercenter.common.database.BaseDO;
 import lombok.Data;
 
@@ -8,6 +11,7 @@ import lombok.Data;
 public class User extends BaseDO {
 
 
+    @TableId(type = IdType.AUTO)
     private Long id;
     /**
      * 用户昵称

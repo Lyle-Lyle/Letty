@@ -1,6 +1,5 @@
-package com.letty.usercenter.common;
+package com.letty.application.common;
 
-import lombok.Data;
 public enum ErrorCode {
 
     SUCCESS(0, "ok"),

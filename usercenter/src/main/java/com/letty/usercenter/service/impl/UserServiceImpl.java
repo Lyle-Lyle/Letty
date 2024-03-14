@@ -13,6 +13,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.letty.usercenter.constant.UserConstant.USER_LOGIN_STATE;
 
@@ -134,5 +138,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         enUser.setUserStatus(originUser.getUserStatus());
         enUser.setCreatedTime(originUser.getCreatedTime());
         return enUser;
+    }
+
+
+    @Override
+    public List<User> searchUsersByTags(List<String> tagList) {
+        if (CollectionUtils.isEmpty(tagList)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper();
+        for (String tagName : tagList) {
+            queryWrapper = queryWrapper.like("tags", tagName);
+        }
+        List<User> userList = userMapper.selectList(queryWrapper);
+        return userList.stream().map(this::getEncryptedUser).collect(Collectors.toList());
     }
 }

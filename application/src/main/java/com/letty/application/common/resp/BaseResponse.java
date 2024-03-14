@@ -1,8 +1,7 @@
-package com.letty.usercenter.common.resp;
+package com.letty.application.common.resp;
 
 import com.letty.usercenter.common.ErrorCode;
 import lombok.Data;
-import org.apache.calcite.avatica.remote.Service;
 
 /**
  * 返回结果类

@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.letty.usercenter.dao.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.util.List;
+
 
 public interface UserService extends IService<User> {
 
@@ -21,4 +23,6 @@ public interface UserService extends IService<User> {
     User userLogin(String userAccount, String userPassword, HttpServletRequest request);
     int userLogout(HttpServletRequest request);
     User getEncryptedUser(User originUser);
+
+    List<User> searchUsersByTags(List<String> tags);
 }

@@ -1,4 +1,4 @@
-package com.letty.usercenter.common;
+package com.letty.application.common;
 
 import com.letty.usercenter.common.resp.BaseResponse;
 

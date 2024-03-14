@@ -1,4 +1,4 @@
-package com.letty.usercenter.common.exception;
+package com.letty.application.common.exception;
 
 import com.letty.usercenter.common.ErrorCode;
 import com.letty.usercenter.common.ResultUtils;

@@ -6,6 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.List;
 
+import static com.letty.usercenter.constant.UserConstant.ADMIN_ROLE;
+import static com.letty.usercenter.constant.UserConstant.USER_LOGIN_STATE;
+
 
 public interface UserService extends IService<User> {
 
@@ -23,6 +26,18 @@ public interface UserService extends IService<User> {
     User userLogin(String userAccount, String userPassword, HttpServletRequest request);
     int userLogout(HttpServletRequest request);
     User getEncryptedUser(User originUser);
+    List<User> searchUsersByTags(List<String> tagList);
 
-    List<User> searchUsersByTags(List<String> tags);
+
+    Integer updateUser(User user, User loginUser);
+
+    /**
+     * get the current login user
+     * @return
+     */
+    User getLoginUser(HttpServletRequest request);
+
+    boolean isAdmin(HttpServletRequest request);
+
+    boolean isAdmin(User loginUser);
 }

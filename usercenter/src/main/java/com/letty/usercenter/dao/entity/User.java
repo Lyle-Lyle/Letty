@@ -6,10 +6,16 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.letty.usercenter.common.database.BaseDO;
 import lombok.Data;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 
 @Data
-public class User extends BaseDO {
+public class User extends BaseDO implements Serializable {
 
+
+    @Serial
+    private static final long serialVersionUID = 6355381290190518926L;
 
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -56,11 +62,5 @@ public class User extends BaseDO {
      * 用户角色 0 - 普通用户 1 - 管理员
      */
     private Integer userRole;
-
-    /**
-     * 星球编号
-     */
-
-    private String planetCode;
 
 }

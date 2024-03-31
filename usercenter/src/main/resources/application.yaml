@@ -6,6 +6,7 @@ server:
         domain: localhost
 
 
+
 spring:
   datasource:
     username: root
@@ -29,13 +30,12 @@ spring:
 
 
 
-
-
   data:
     redis:
-      host: 127.0.0.1
+      url: 127.0.0.1
       port: 6379
       password: Lykin172855.
+
 
 
 

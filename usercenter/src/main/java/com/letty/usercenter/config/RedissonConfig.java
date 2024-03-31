@@ -13,20 +13,21 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ConfigurationProperties(prefix = "spring.redis")
+@ConfigurationProperties(prefix = "spring.data.redis")
 @Data
 public class RedissonConfig {
 
     private String port;
-    private String host;
+    private String url;
+    private String password;
 
     @Bean
-    public RedissonClient redissonConfig() {
+    public RedissonClient redissonClient() {
         //1.创建配置
         Config config = new Config();
 //        String redisAddress = "redis://127.0.0.1:6379";
-        String redisAddress = String.format("redis://%s:%s",host,port);
-        config.useSingleServer().setAddress(redisAddress).setDatabase(3);
+        String redisAddress = String.format("redis://%s:%s",url,port);
+        config.useSingleServer().setAddress(redisAddress).setDatabase(3).setPassword(password);
 
         //2.创建redisson实例
         RedissonClient redisson = Redisson.create(config);

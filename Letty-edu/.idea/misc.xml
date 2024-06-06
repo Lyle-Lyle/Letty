@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Letty-edu-content/Letty-edu-content-service" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Letty-edu-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-base/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-content/Letty-edu-content-model/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-content/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-content/Letty-edu-content-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-system/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-system/xuecheng-plus-system-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-system/xuecheng-plus-system-model/pom.xml" />
+        <option value="$PROJECT_DIR$/Letty-edu-system/xuecheng-plus-system-api/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

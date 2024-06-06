@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>Letty-edu-parent</artifactId>
+        <groupId>com.lyle</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../Letty-edu-parent</relativePath>
+    </parent>
+    <artifactId>Letty-edu-system</artifactId>
+    <name>Letty-edu-system</name>
+    <description>Letty-edu-plus-system</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>Letty-edu-system-api</module>
+        <module>Letty-edu-system-service</module>
+        <module>Letty-edu-system-model</module>
+    </modules>
+</project>

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: content-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/letty_edu?serverTimezone=UTC&userUnicode=true&useSSL=false
+    username: root
+    password: Lykin172855.
+logging:
+  config: classpath:log4j2-dev.xml
